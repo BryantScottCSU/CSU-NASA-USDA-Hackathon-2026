@@ -1,0 +1,45 @@
+commodityCode,commodityName,unitId
+101,Wheat - HRW,1
+102,Wheat - SRW,1
+103,Wheat - HRS,1
+104,Wheat - White,1
+105,Wheat - Durum,1
+106,Wheat - Mixed,1
+107,All Wheat,1
+201,Wheat Products,1
+301,Barley,1
+401,Corn,1
+501,Rye,1
+601,Oats,1
+701,Sorghum,1
+801,Soybeans,1
+901,Soybean cake & meal,1
+902,Soybean Oil,1
+1001,Flaxseed,1
+1101,Linseed Oil,1
+1110,Sunflowerseed Oil,1
+1201,Cottonseed,1
+1202,Cottonseed cake & meal,1
+1203,Cottonseed Oil,1
+1301,Cotton- Am Pima,2
+1401,"Cotton- Upland 1 1/16"" & over",2
+1402,"Cotton- Upland 1""-1 1/16"" & over",2
+1403,"Cotton- Upland under 1""",2
+1404,All Upland Cotton,2
+1498,Rice - LG Rough,1
+1499,"Rice- Med, Short,Other Rough",1
+1501,Rice- LG Brown,1
+1502,"Rice- Med,Short, Other Brown",1
+1503,"Rice - Long Grain, Milled",1
+1504,"Rice- Med,Short,Other Milled",1
+1505,All Rice,1
+1601,Cattle Hides - Whole - Excluding Wet Blues,3
+1602,Calf Skins - Whole - Excluding Wet Blues,3
+1603,Kip Skins - Whole - Excluding Wet Blues,3
+1604,"Cattle Hides-Cut into Croupons, etc-excl Wet Blues",4
+1605,Cattle Hides and Skins-other-excluding Wet Blues,5
+1606,Cattle Wet Blues-Unsplit (Whole or Sided),4
+1607,Cattle Wet Blues-Grain Splits (Whole or Sided),4
+1608,Cattle Wet Blues-Splits-Excluding Grain Splits,5
+1701,"Fresh, Chilled, or Frozen Muscle Cuts of Beef",1
+1702,"Fresh, Chilled, or Frozen Muscle Cuts of Pork",1

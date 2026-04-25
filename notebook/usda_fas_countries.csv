@@ -1,0 +1,212 @@
+countryCode,countryName,countryDescription,regionId,gencCode
+1,EUROPEAN,EUROPEAN UNION - 27,1,
+1010,GREENLD ,GREENLAND                      ,11,GRL
+1220,CANADA  ,CANADA                         ,11,CAN
+1610,MIGUEL  ,ST. PIERRE AND MIQUELON        ,11,
+2010,MEXICO  ,MEXICO                         ,11,MEX
+2050,GUATMAL ,GUATEMALA                      ,11,GTM
+2080,BELIZE  ,BELIZE                         ,11,BLZ
+2110,SALVADR ,EL SALVADOR                    ,11,SLV
+2150,HONDURA ,HONDURAS                       ,11,HND
+2190,NICARAG ,NICARAGUA                      ,11,NIC
+2230,C RICA  ,COSTA RICA                     ,11,CRI
+2250,PANAMA  ,PANAMA                         ,11,PAN
+2270,CANAL Z ,PANAMA CANAL ZONE              ,11,
+2320,BERMUDA ,BERMUDA                        ,11,BMU
+2360,BAHAMAS ,"BAHAMAS, THE                   ",11,BHS
+2390,CUBA    ,CUBA                           ,11,CUB
+2410,JAMAICA ,JAMAICA                        ,11,JAM
+2430,TURK IS ,TURKS AND CAICOS ISLANDS       ,11,TCA
+2440,CAYMAN  ,CAYMAN ISLANDS                 ,11,CYM
+2450,HAITI   ,HAITI                          ,11,HTI
+2470,DOM REP ,DOMINICAN REPUBLIC             ,11,DOM
+2480,LW WW I ,LEEWARD-WINDWARD ISLANDS       ,11,
+2720,BARBADO ,BARBADOS                       ,11,BRB
+2740,TRINID  ,TRINIDAD AND TOBAGO            ,11,TTO
+2770,N ANTIL ,NETHERLANDS ANTILLES           ,11,
+2830,F W IND ,FRENCH WEST INDIES             ,11,
+3010,COLOMB  ,COLOMBIA                       ,11,COL
+3070,VENEZ   ,VENEZUELA                      ,11,VEN
+3120,GUYANA  ,GUYANA                         ,11,GUY
+3150,SURINAM ,SURINAM                        ,11,
+3170,F GUIAN ,FRENCH GUIANA                  ,11,GUF
+3310,ECUADOR ,ECUADOR                        ,11,ECU
+3330,PERU    ,PERU                           ,11,PER
+3350,BOLIVIA ,BOLIVIA                        ,11,BOL
+3370,CHILE   ,CHILE                          ,11,CHL
+3510,BRAZIL  ,BRAZIL                         ,11,BRA
+3530,PARAGUA ,PARAGUAY                       ,11,PRY
+3550,URUGUAY ,URUGUAY                        ,11,URY
+3570,ARGENT  ,ARGENTINA                      ,11,ARG
+3720,FALK IS ,FALKLAND ISLANDS (ISLAS MALVIN),11,
+4000,ICELAND ,ICELAND                        ,2,ISL
+4010,SWEDEN  ,SWEDEN                         ,1,SWE
+4030,NORWAY  ,NORWAY                         ,2,NOR
+4050,FINLAND ,FINLAND                        ,1,FIN
+4090,DENMARK ,DENMARK                        ,1,DNK
+4120,U KING  ,UNITED KINGDOM                 ,1,GBR
+4190,IRELAND ,IRELAND                        ,1,IRL
+4210,NETHLDS ,NETHERLANDS                    ,1,NLD
+4230,BELGIUM ,BELGIUM-LUXEMBOURG             ,1,BEL
+4270,FRANCE  ,FRANCE                         ,1,FRA
+4280,GERMANY ,GERMANY                        ,1,DEU
+4290,GERM DR ,GERMAN DEMOCRATIC REPUBLIC     ,3,
+4330,AUSTRIA ,AUSTRIA                        ,1,AUT
+4350,CZECHO  ,CZECHOSLOVAKIA                 ,3,
+4351,CZECH RE,CZECH REPUBLIC                 ,1,CZE
+4359,SLOVAKIA,SLOVAKIA                       ,1,SVK
+4370,HUNGARY ,HUNGARY                        ,1,HUN
+4410,SWITZLD ,SWITZERLAND                    ,2,CHE
+4461,FSU-12  ,FORMER SOVIET UNION            ,4,
+4470,ESTONIA ,ESTONIA                        ,1,EST
+4490,LATVIA  ,LATVIA                         ,1,LVA
+4510,LITHUAN ,LITHUANIA                      ,1,LTU
+4550,POLAND  ,POLAND                         ,1,POL
+4621,RUSSIA  ,RUSSIAN FEDERATION             ,4,RUS
+4622,BELARUS ,"BYELARUS, REPUBLIC OF          ",4,BLR
+4623,UKRAINE ,UKRAINE                        ,4,UKR
+4631,ARMENIA ,"ARMENIA, REPUBLIC OF           ",4,ARM
+4632,AZERBJN ,"AZERBAIJAN, REPUBLIC OF        ",4,
+4633,GEORGIA ,"GEORGIA, REPUBLIC OF           ",4,GEO
+4634,KAZAKHS ,"KAZAKHSTAN, REPUBLIC OF        ",4,
+4635,KYRGYZS ,"KYRGYZSTAN, REPUBLIC OF        ",4,
+4641,MOLDOVA ,"MOLDOVA, REPUBLIC OF           ",4,MDA
+4642,TAJIKIS ,"TAJIKISTAN, REPUBLIC OF        ",4,
+4643,TURKMEN ,TURKMENISTAN                   ,4,TKM
+4644,UZBEKIS ,"UZBEKISTAN, REPUBLIC OF        ",4,
+4670,AZORES  ,AZORES                         ,2,
+4700,SPAIN   ,SPAIN                          ,1,ESP
+4710,PORTUGL ,PORTUGAL                       ,1,PRT
+4720,GIBRALT ,GIBRALTAR                      ,2,GIB
+4730,MALTA   ,MALTA & GOZO                   ,1,MLT
+4750,ITALY   ,ITALY                          ,1,ITA
+4791,CROATIA ,CROATIA                        ,2,HRV
+4792,SLOVENIA,SLOVENIA                       ,1,SVN
+4793,BOSNIA  ,BOSNIA-HERCEGOVINA             ,2,
+4794,MACEDON ,MACEDONIA (SKOPJE)             ,2,
+4799,YUGOSLV ,YUGOSLAVIA                     ,2,
+4810,ALBANIA ,ALBANIA                        ,2,ALB
+4840,GREECE  ,GREECE                         ,1,GRC
+4850,ROMANIA ,ROMANIA                        ,1,ROU
+4870,BULGAR  ,BULGARIA                       ,1,BGR
+4890,TURKEY  ,TURKEY                         ,2,TUR
+4910,CYPRUS  ,CYPRUS                         ,1,CYP
+5020,SYRIA   ,SYRIA                          ,9,SYR
+5040,LEBANON ,LEBANON                        ,9,LBN
+5050,IRAQ    ,IRAQ                           ,9,IRQ
+5070,IRAN    ,IRAN                           ,9,IRN
+5080,ISRAEL  ,ISRAEL                         ,9,ISR
+5110,JORDAN  ,JORDAN                         ,9,JOR
+5120,GAZA ST ,GAZA STRIP                     ,9,
+5130,KUWAIT  ,KUWAIT                         ,9,KWT
+5170,S ARAB  ,SAUDI ARABIA                   ,9,SAU
+5180,QATAR   ,QATAR                          ,9,QAT
+5200,U AR EM ,UNITED ARAB EMIRATES           ,9,ARE
+5210,YEMEN   ,YEMEN                          ,9,YEM
+5220,S YEMEN ,YEMEN (ADEN)                   ,9,
+5230,OMAN    ,OMAN                           ,9,OMN
+5250,BAHRAIN ,BAHRAIN                        ,9,BHR
+5310,AFGHAN  ,AFGHANISTAN                    ,9,AFG
+5330,INDIA   ,INDIA                          ,8,IND
+5350,PAKISTN ,PAKISTAN                       ,9,PAK
+5360,NEPAL   ,NEPAL                          ,9,NPL
+5380,BANGLADH,BANGLADESH                     ,9,BGD
+5420,S LANKA ,SRI LANKA                      ,9,LKA
+5460,BURMA   ,BURMA                          ,9,MMR
+5490,THAILND ,THAILAND                       ,9,THA
+5510,S VETNM ,"VIETNAM, REPUBLIC OF (SOUTH)   ",9,
+5520,VIETNAM ,VIETNAM                        ,9,VNM
+5530,LAOS    ,LAOS                           ,9,LAO
+5550,CAMBODIA,CAMBODIA                       ,9,KHM
+5570,MALAYSA ,MALAYSIA                       ,9,MYS
+5590,SINGAPR ,SINGAPORE                      ,9,SGP
+5600,INDNSIA ,INDONESIA                      ,9,IDN
+5610,BRUNEI  ,BRUNEI                         ,9,BRN
+5650,PHIL    ,PHILIPPINES                    ,9,PHL
+5660,MACAU   ,MACAU                          ,9,MAC
+5680,SO ASIA ,SOUTHERN ASIA                  ,9,
+5700,CHINA   ,"CHINA, PEOPLES REPUBLIC OF     ",7,CHN
+5740,MONGOLIA,MONGOLIA                       ,9,MNG
+5790,NO KOR  ,"KOREA, DEMOCRATIC PEOPLE'S REP ",9,
+5800,KOR REP ,"KOREA, REPUBLIC OF             ",9,
+5820,HG KONG ,HONG KONG                      ,9,HKG
+5830,TAIWAN  ,TAIWAN                         ,6,TWN
+5880,JAPAN   ,JAPAN                          ,5,JPN
+6020,AUSTRAL ,AUSTRALIA                      ,9,AUS
+6040,NEW GUI ,PAPUA NEW GUINEA               ,9,PNG
+6140,N ZEAL  ,NEW ZEALAND                    ,9,NZL
+6150,W SAMOA ,WESTERN SAMOA                  ,9,
+6220,BR P IS ,BRITISH PACIFIC ISLANDS        ,9,
+6410,FR P IS ,FRENCH PACIFIC ISLANDS         ,9,
+6810,MARSHALL,MARSHALL ISLANDS               ,9,MHL
+6820,MICRONES,FEDERATED STATES OF MICRONESIA ,9,FSM
+6830,PALAU   ,PALAU                          ,9,PLW
+6840,T PAC I ,TRUST TERRITORY OF THE PACIFIC ,9,
+6860,OPAC IS ,"OTHER PACIFIC ISLANDS, NEC     ",9,
+7140,MOROCCO ,MOROCCO                        ,10,MAR
+7210,ALGERIA ,ALGERIA                        ,10,DZA
+7230,TUNISIA ,TUNISIA                        ,10,TUN
+7250,LIBYA   ,LIBYA                          ,10,LBY
+7290,EGYPT   ,EGYPT                          ,10,EGY
+7320,SUDAN   ,SUDAN                          ,10,SDN
+7323,South su,south sudan                    ,10,
+7330,CNRY I  ,CANARY ISLANDS                 ,10,
+7370,W SAHARA,WESTERN SAHARA                 ,10,ESH
+7380,EQ GUIN ,EQUATORIAL GUINEA              ,10,GNQ
+7410,MAURITN ,MAURITANIA                     ,10,MRT
+7420,CAMROON ,CAMEROON                       ,10,CMR
+7440,SENEGAL ,SENEGAL                        ,10,SEN
+7450,MALI    ,MALI                           ,10,MLI
+7460,GUIN-CON,GUINEA                         ,10,GIN
+7470,SIER LN ,SIERRA LEONE                   ,10,SLE
+7480,C IVOIRE,COTE D'IVOIRE                  ,10,
+7490,GHANA   ,GHANA                          ,10,GHA
+7500,GAMBIA  ,"GAMBIA, THE                    ",10,GMB
+7510,NIGER   ,NIGER                          ,10,NER
+7520,TOGO    ,TOGO                           ,10,TGO
+7530,NIGERIA ,NIGERIA                        ,10,NGA
+7540,C AF EMP,CENTRAL AFRICAN REPUBLIC       ,10,CAF
+7550,GABON   ,GABON                          ,10,GAB
+7560,CHAD    ,CHAD                           ,10,TCD
+7580,S HELENA,ST. HELENA (BR W AFR)          ,10,
+7590,MADIERA ,MADEIRA ISLANDS                ,10,
+7600,BUR FASO,BURKINA FASO                   ,10,
+7610,BENIN   ,BENIN                          ,10,BEN
+7620,ANGOLA  ,ANGOLA                         ,10,AGO
+7630,CO BRAZ ,CONGO (BRAZZAVILLE)            ,10,COG
+7640,GUIN-BIS,"WESTERN AFRICA, NEC            ",10,
+7650,LIBERIA ,LIBERIA                        ,10,LBR
+7660,CONGO DR,"CONGO, DEMOCRATIC REPUBLIC OF  ",10,
+7670,BURUNDI ,BURUNDI                        ,10,BDI
+7690,RWANDA  ,RWANDA                         ,10,RWA
+7700,SOM REP ,SOMALIA                        ,10,SOM
+7740,ETHIOP  ,ETHIOPIA                       ,10,ETH
+7741,ERITREA ,ERITREA                        ,10,ERI
+7770,DJIBOUTI,DJIBOUTI AFARS-ISSAS           ,10,DJI
+7780,UGANDA  ,UGANDA                         ,10,UGA
+7790,KENYA   ,KENYA                          ,10,KEN
+7800,SEYCHEL ,SEYCHELLES AND DEPENDENTS      ,10,
+7810,B IND O ,BRITISH INDIAN OCEAN TERRITORY ,10,IOT
+7830,TNZANIA ,"TANZANIA, UNITED REPUBLIC OF   ",10,
+7850,MAURIT  ,MAURITIUS AND DEPENDENTS       ,10,
+7870,MOZAMBQ ,MOZAMBIQUE                     ,10,MOZ
+7880,MADAGASR,MADAGASCAR                     ,10,MDG
+7890,COMOROS ,COMOROS                        ,10,COM
+7900,F IND O ,FRENCH IND. OCEAN TERRITORY    ,10,
+7910,REP SAF ,"SOUTH AFRICA, REPUBLIC OF      ",10,
+7920,NAMIBIA ,NAMIBIA                        ,10,NAM
+7930,BOTSWANA,BOTSWANA                       ,10,BWA
+7940,ZAMBIA  ,ZAMBIA                         ,10,ZMB
+7950,SWAZLND ,SWAZILAND                      ,10,
+7960,ZIMBABWE,ZIMBABWE                       ,10,ZWE
+7970,MALAWI  ,MALAWI                         ,10,MWI
+7990,LESOTHO ,LESOTHO                        ,10,LSO
+9110,VIRGIN I,VIRGIN ISLANDS OF THE U.S.     ,11,
+9310,MIDWAY I,MIDWAY ISLANDS                 ,9,
+9330,WAKE IS ,WAKE ISLAND                    ,9,
+9350,GUAM    ,GUAM                           ,9,GUM
+9410,CAN EN I,CANTON AND ENDERBURY ISLANDS   ,9,
+9510,AM SAMOA,AMERICAN SAMOA                 ,9,ASM
+9610,NMARIANA,NORTHERN MARIANA ISLANDS       ,9,MNP
+9800,US O IS ,US MINOR OUTLYING ISLAND       ,9,
+9990,UNKNOWN,UNKNOWN,99,AX1
