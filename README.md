@@ -6,35 +6,68 @@ Using Geospatial data fruit flies outbreaks are found and traced to seaport or a
 
 ## Screenshots
 
-_Add screenshots later
-
 ## Features
 
-- Fast and lightweight
-- Easy to build
-- Cross-platform
-- Clean architecture
+- Imports `fruit_fly_detections.csv` detections by month, county, state, and approximate map centroid.
+- Imports `international_segmentation.csv` and keeps **inbound international traffic to the United States** where `DEST_COUNTRY` / `DEST_COUNTRY_NAME` is US / United States.
+- Computes monthly lagged Pearson correlations between fruit fly detections and inbound traffic by origin country.
+- Ranks origin countries with a risk-style score based on positive correlation, traffic volume, and detection volume.
+- Displays seasonal hotspot maps using Leaflet.
+- Shows annual port freight context from `2020Ports.csv`, `2021Ports.csv`, and `2022Ports.csv`.
+
+This is exploratory correlation tooling, not proof of biological origin. Treat high-ranking countries as hypotheses that need domain validation.
 
 ## Datasets
 https://drive.google.com/drive/folders/1SxLnjxejRmRQClYa27pDyfTx6Si5yzYy?usp=drive_link
 
-##Databricks
-https://accounts.cloud.databricks.com/login?account_id=e278436e-6967-4989-b587-9c36e7a6d96e&next_url=%2Foidc%2Faccounts%2Fe278436e-6967-4989-b587-9c36e7a6d96e%2Fv1%2Fauthorize%3Fclient_id%3Dcef6a689-ce26-45d0-bc87-17bef342fbba%26redirect_uri%3Dhttps%253A%252F%252Faccounts.cloud.databricks.com%252Foidc%252Fconsume%26state%3DP2xvZ2luVXNpbmdJZHA9ZGF0YWJyaWNrcyZhY2NvdW50X2lkPWUyNzg0MzZlLTY5NjctNDk4OS1iNTg3LTljMzZlN2E2ZDk2ZSZhdXRoX3JlcXVlc3RfaWQ9YWEzYWUwZDEtMGJkYi00NjU2LThlNmMtM2NhMWYxNTQ2N2YxJm5vbmNlX25hbWU9b2F1dGhfbm9uY2VfYTM3NzgzYmQmcmlpZD0zOWQxMDdhMS03Zjk5LTRiNzQtYmM0Zi0wNDNjZWIxZTEyNWImbz03NDc0NjUzMDM1NjU3MTg4%26response_type%3Did_token%26nonce%3Dd3b24923-4530-4dfa-8eb7-b343dd8010e8%26access_type%3Doffline%26include_granted_scopes%3Dtrue%26response_mode%3Dform_post%26scope%3Dopenid%2Bemail&lakehouse=true&tuuid=46a950f0-eaa3-4ccb-a53c-643c4939953e
-
-## Installation
-
-### Clone
+## Setup
 
 ```bash
-git clone https://github.com/BryantScottCSU/CSU-NASA-USDA-Hackathon-2026.git
-cd your-repo
+cd website
 ```
 
-### Run
+From inside the `fruitfly_corr_site` folder:
 
 ```bash
-make run
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-### ChatGPT project link
-https://chatgpt.com/g/g-p-69ec2d9a34a48191bb27bd55876f7b9a/project
+
+Copy these files into the `data/` folder with exactly these names:
+
+```text
+fruit_fly_detections.csv
+international_segmentation.csv
+2020Ports.csv
+2021Ports.csv
+2022Ports.csv
+```
+
+Create the database tables:
+
+```bash
+python manage.py makemigrations outbreaks
+python manage.py migrate
+```
+
+Import the data:
+
+```bash
+python manage.py import_data --data-dir data --clear
+```
+
+Run the site:
+
+```bash
+python manage.py runserver
+```
+
+Open:
+
+```text
+http://127.0.0.1:8000/
+```
+
+
