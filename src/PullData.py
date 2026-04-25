@@ -4,14 +4,14 @@ import time
 import requests
 
 PORTAL_URL = "https://csurams.maps.arcgis.com/sharing/rest"
-SERVICE_URL = "https://services1.arcgis.com/KNdRU5cN6ENqCTjk/arcgis/rest/services/PPQ Fruit Fly Detections Summary Feature Layer/FeatureServer"
+SERVICE_URL = "https://services1.arcgis.com/KNdRU5cN6ENqCTjk/arcgis/rest/services/PPQ%20International%20Segments%20Feature%20Layer/FeatureServer"
 LAYER_ID = 0
 
 TOKEN_URL = f"{PORTAL_URL}/generateToken"
 LAYER_URL = f"{SERVICE_URL}/{LAYER_ID}"
 QUERY_URL = f"{LAYER_URL}/query"
 
-OUTPUT_FILE = "fruit_fly_detections.geojson"
+OUTPUT_FILE = "international_segmentation.geojson"
 
 USERNAME = "csuguest28"
 PASSWORD = "IEatChildren7!"
@@ -165,9 +165,6 @@ def download_all_features(token, page_size=1000):
 
         result_offset += page_size
 
-        # Be polite to the server
-        time.sleep(0.2)
-
     return all_geojson_features
 
 
@@ -195,7 +192,7 @@ def main():
     for field in layer_info.get("fields", []):
         print(f"- {field['name']} ({field['type']})")
 
-    features = download_all_features(token, page_size=1000)
+    features = download_all_features(token, page_size=10000)
 
     save_geojson(features, OUTPUT_FILE)
 

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Interactive GeoJSON Viewer</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            font-family: system-ui, sans-serif;
+        }
+
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .info-box {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 1000;
+            background: white;
+            padding: 12px 14px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            max-width: 260px;
+            font-size: 14px;
+        }
+
+        .info-box h2 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div class="info-box">
+        <h2>GeoJSON Viewer</h2>
+        <div id="feature-count">Loading features...</div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        const map = L.map("map");
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+        function styleFeature(feature) {
+            return {
+                color: "#d73027",
+                weight: 2,
+                fillColor: "#fc8d59",
+                fillOpacity: 0.45
+            };
+        }
+
+        function highlightFeature(e) {
+            const layer = e.target;
+            layer.setStyle({
+                weight: 4,
+                fillOpacity: 0.7
+            });
+            layer.bringToFront();
+        }
+
+        function resetHighlight(e) {
+            geojsonLayer.resetStyle(e.target);
+        }
+
+        function popupContent(feature) {
+            if (!feature.properties || Object.keys(feature.properties).length === 0) {
+                return "<b>Polygon feature</b><br>No properties found.";
+            }
+
+            let html = "<b>Feature Properties</b><br><table>";
+
+            for (const [key, value] of Object.entries(feature.properties)) {
+                html += `
+                    <tr>
+                        <td><b>${key}</b></td>
+                        <td>${value}</td>
+                    </tr>
+                `;
+            }
+
+            html += "</table>";
+            return html;
+        }
+
+        let geojsonLayer;
+
+        fetch("/data/{{ geojson_file }}")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Could not load GeoJSON file.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById("feature-count").textContent =
+                    `${data.features.length} features loaded`;
+
+                geojsonLayer = L.geoJSON(data, {
+                    style: styleFeature,
+
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup(popupContent(feature));
+
+                        layer.on({
+                            mouseover: highlightFeature,
+                            mouseout: resetHighlight,
+                            click: function(e) {
+                                map.fitBounds(e.target.getBounds(), {
+                                    maxZoom: 15
+                                });
+                            }
+                        });
+                    }
+                }).addTo(map);
+
+                map.fitBounds(geojsonLayer.getBounds(), {
+                    padding: [24, 24]
+                });
+            })
+            .catch(error => {
+                console.error(error);
+                document.getElementById("feature-count").textContent =
+                    "Failed to load GeoJSON.";
+                map.setView([39.5, -98.35], 4);
+            });
+    </script>
+</body>
+</html>
