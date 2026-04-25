@@ -16,8 +16,6 @@ Using Geospatial data fruit flies outbreaks are found and traced to seaport or a
 - Displays seasonal hotspot maps using Leaflet.
 - Shows annual port freight context from `2020Ports.csv`, `2021Ports.csv`, and `2022Ports.csv`.
 
-This is exploratory correlation tooling, not proof of biological origin. Treat high-ranking countries as hypotheses that need domain validation.
-
 ## Datasets
 https://drive.google.com/drive/folders/1SxLnjxejRmRQClYa27pDyfTx6Si5yzYy?usp=drive_link
 
@@ -35,12 +33,13 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-
-Make a `data/` directory the copy these files into it with exactly these names:
+Make a `data/` directory:
 
 ```bash
 mkdir data
 ```
+
+copy these files into it with exactly these names:
 
 ```text
 fruit_fly_detections.csv
