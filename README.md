@@ -5,6 +5,7 @@
 Using Geospatial data fruit flies outbreaks are found and traced to seaport or airport of entry. This is then further tracked to possible origins and used to help make policy and defenses against these invasive flies.
 
 ## Screenshots
+![Map](screenshots/map.png)   
 
 ## Features
 
