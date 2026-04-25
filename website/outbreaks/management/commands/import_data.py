@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import sys
 import csv
 import re
 from collections import defaultdict
@@ -11,6 +12,16 @@ from django.db import transaction
 
 from outbreaks.models import AirTrafficAggregate, DetectionAggregate, PortTraffic
 from outbreaks.utils import parse_month_date, parse_number, state_from_city_name
+
+
+max_int = sys.maxsize
+
+while True:
+    try:
+        csv.field_size_limit(max_int)
+        break
+    except OverflowError:
+        max_int = int(max_int / 10)
 
 COORD_RE = re.compile(r"(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)")
 
