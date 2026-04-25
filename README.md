@@ -16,10 +16,7 @@ _Add screenshots later
 - Clean architecture
 
 ## Datasets
-
-``` bash
 https://drive.google.com/drive/folders/1SxLnjxejRmRQClYa27pDyfTx6Si5yzYy?usp=drive_link
-```
 
 ## Installation
 
