@@ -1,4 +1,4 @@
-# pip install requests numpy matplotlib
+# pip install requests numpy matplotlib geopandas shapely pyogrio
 import requests
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,6 +9,7 @@ PORTAL_URL = "https://csurams.maps.arcgis.com/sharing/rest"
 SERVICE_URL = "https://services1.arcgis.com/KNdRU5cN6ENqCTjk/arcgis/rest/services/PPQ Fruit Fly Detections Summary Feature Layer/FeatureServer"
 LAYER_ID = 0
 
+# This is a feature for later ;)
 #USERNAME = os.environ["ARCGIS_USERNAME"]
 #PASSWORD = os.environ["ARCGIS_PASSWORD"]
 # Security ++
