@@ -26,7 +26,7 @@ https://drive.google.com/drive/folders/1SxLnjxejRmRQClYa27pDyfTx6Si5yzYy?usp=dri
 cd website
 ```
 
-From inside the `fruitfly_corr_site` folder:
+From inside the `website` folder:
 
 ```bash
 python -m venv .venv
