@@ -29,3 +29,6 @@ cd your-repo
 ```bash
 make run
 ```
+
+### ChatGPT project link
+https://chatgpt.com/g/g-p-69ec2d9a34a48191bb27bd55876f7b9a/project
