@@ -27,7 +27,7 @@ https://drive.google.com/drive/folders/1SxLnjxejRmRQClYa27pDyfTx6Si5yzYy?usp=dri
 cd website
 ```
 
-From inside the `website` folder:
+From inside the `website` directory:
 
 ```bash
 python -m venv .venv
@@ -36,7 +36,11 @@ pip install -r requirements.txt
 ```
 
 
-Copy these files into the `data/` folder with exactly these names:
+Make a `data/` directory the copy these files into it with exactly these names:
+
+```bash
+mkdir data
+```
 
 ```text
 fruit_fly_detections.csv
@@ -70,5 +74,3 @@ Open:
 ```text
 http://127.0.0.1:8000/
 ```
-
-
