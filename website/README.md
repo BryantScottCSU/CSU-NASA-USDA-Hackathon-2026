@@ -16,7 +16,7 @@ This is exploratory correlation tooling, not proof of biological origin. Treat h
 ## Project layout
 
 ```text
-fruitfly_corr_site/
+website/
   manage.py
   requirements.txt
   README.md
@@ -40,7 +40,7 @@ fruitfly_corr_site/
 
 ## Setup
 
-From inside the `fruitfly_corr_site` folder:
+From inside the `website` folder:
 
 ```bash
 python -m venv .venv
