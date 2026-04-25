@@ -20,7 +20,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let detectionLayer = L.layerGroup().addTo(map);
 let airportLayer = L.layerGroup().addTo(map);
-let countryChart, timeChart;
+let countryChart, timeChart, monthlyRiskChart;
 let selectedCountry = null;
 
 function metric() { return $('metric').value; }
@@ -40,7 +40,7 @@ function setSummary(data) {
     ['Detection rows', data.detections.rows],
     ['Total detections', Math.round(data.detections.total || 0)],
     ['Inbound passengers', Math.round(data.air_traffic.passengers || 0)],
-    ['Air freight', Math.round(data.air_traffic.freight || 0)],
+    ['Air freight in lbs', Math.round(data.air_traffic.freight || 0)],
   ];
 
   $('summaryCards').innerHTML = cards
@@ -59,7 +59,9 @@ function upsertOptions(select, values, firstLabel, firstValue = 'all') {
     values.map(v => `<option value="${v}">${v}</option>`).join('');
 }
 
-function renderCountries(rows) {
+function renderCountries(payload) {
+  const rows = payload.countries || [];
+  const distanceLimit = payload.distance_limit_miles ?? 60;
   const top = rows.slice(0, 12);
   const labels = top.map(r => r.country);
   const risk = top.map(r => r.risk_score);
@@ -117,6 +119,7 @@ function renderCountries(rows) {
       <td>${r.country}</td>
       <td>${r.correlation === null ? 'n/a' : r.correlation.toFixed(3)}</td>
       <td>${fmt.format(Math.round(r.traffic_total || 0))}</td>
+      <td>${fmt.format(r.matched_counties || 0)}</td>
       <td>${r.risk_score.toFixed(2)}</td>
     </tr>
   `).join('');
@@ -132,18 +135,23 @@ function renderCountries(rows) {
   if (!selectedCountry && rows.length) {
     selectedCountry = rows[0].country;
   }
+
+  const panelDesc = document.querySelector('.grid.two .panel .panel-title p');
+  if (panelDesc) {
+    panelDesc.textContent = `Only inbound airport records within ${distanceLimit} miles of a county centroid are included. Risk score combines positive lagged correlation, traffic volume, and detection volume. A 2.5 country of origin scalar is applied if the flies are native to the country importing.`;
+  }
 }
 
 async function loadCountries() {
   const data = await getJSON(`/api/countries/?metric=${metric()}&state=${encodeURIComponent(state())}&lag=${lag()}`);
-  renderCountries(data.countries);
+  renderCountries(data);
   await loadTimeseries();
 }
 
 async function loadTimeseries() {
   if (!selectedCountry) return;
 
-  const data = await getJSON(`/api/timeseries/?metric=${metric()}&state=${encodeURIComponent(state())}&country=${encodeURIComponent(selectedCountry)}`);
+  const data = await getJSON(`/api/timeseries/?state=${encodeURIComponent(state())}&country=${encodeURIComponent(selectedCountry)}`);
 
   if (timeChart) timeChart.destroy();
 
@@ -153,7 +161,7 @@ async function loadTimeseries() {
       labels: data.labels,
       datasets: [
         {
-          label: `${selectedCountry} ${data.metric}`,
+          label: `${selectedCountry} inbound flights`,
           data: data.traffic,
           yAxisID: 'yTraffic',
           tension: 0.25,
@@ -224,6 +232,66 @@ async function loadTimeseries() {
   });
 }
 
+async function loadMonthlyRisk() {
+  const data = await getJSON(`/api/monthly-risk/?state=${encodeURIComponent(state())}&year=${encodeURIComponent(year())}`);
+
+  if (monthlyRiskChart) monthlyRiskChart.destroy();
+
+  monthlyRiskChart = new Chart($('monthlyRiskChart'), {
+    type: 'bar',
+    data: {
+      labels: data.labels,
+      datasets: [
+        {
+          label: 'Relative outbreak risk (0-100)',
+          data: data.relative_risk,
+          backgroundColor: COLORS.rust,
+          borderColor: COLORS.greenDark,
+          borderWidth: 1.2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: COLORS.greenDark
+          }
+        },
+        tooltip: {
+          callbacks: {
+            afterLabel: (ctx) => {
+              const raw = (data.counts?.[ctx.dataIndex] || 0).toFixed(1);
+              return `Detections: ${raw}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: COLORS.muted
+          },
+          grid: {
+            color: 'rgba(30, 77, 43, 0.08)'
+          }
+        },
+        y: {
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            color: COLORS.muted
+          },
+          grid: {
+            color: 'rgba(30, 77, 43, 0.08)'
+          }
+        }
+      }
+    }
+  });
+}
+
 function radius(value) {
   return Math.max(4, Math.min(32, Math.sqrt(value || 0) / 40));
 }
@@ -255,7 +323,9 @@ async function loadHotspots() {
       fillOpacity: 0.35,
       weight: 1
     })
-      .bindPopup(`<b>Inbound airport</b><br>${p.name}<br>${p.state}<br>${p.year}-${String(p.month).padStart(2, '0')}<br>${data.metric}: ${fmt.format(Math.round(p.value))}`)
+      .bindPopup(
+        `<b>Inbound airport</b><br>${p.name}<br>${p.state}<br>${p.year}-${String(p.month).padStart(2, '0')}<br>${data.metric}: ${fmt.format(Math.round(p.value))}<br>Nearest county: ${p.nearest_county_name}, ${p.nearest_county_state}<br>Distance: ${(p.nearest_county_distance_miles || 0).toFixed(1)} mi`
+      )
       .addTo(airportLayer);
   });
 
@@ -280,12 +350,14 @@ async function boot() {
 
   setSummary(summary);
   await loadCountries();
+  await loadMonthlyRisk();
   await loadHotspots();
 }
 
 $('refresh').addEventListener('click', async () => {
   selectedCountry = null;
   await loadCountries();
+  await loadMonthlyRisk();
   await loadHotspots();
 });
 

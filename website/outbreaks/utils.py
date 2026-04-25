@@ -27,6 +27,16 @@ SEASONS = {
     "autumn": {9, 10, 11},
 }
 
+# Countries inferred from EPPO datasheets as native/origin ranges for the modeled fruit fly species.
+FRUIT_FLY_ORIGIN_COUNTRIES = {
+    "Angola", "Bangladesh", "Belize", "Bhutan", "Botswana", "Brunei Darussalam",
+    "Cambodia", "China", "Costa Rica", "Ethiopia", "Guatemala", "Honduras",
+    "India", "Indonesia", "Kenya", "Laos", "Madagascar", "Malawi", "Malaysia",
+    "Mexico", "Mozambique", "Myanmar", "Namibia", "Nepal", "Pakistan", "Panama",
+    "Philippines", "South Africa", "Sri Lanka", "Tanzania", "Thailand", "Uganda",
+    "Vietnam", "Zambia", "Zimbabwe",
+}
+
 def parse_number(value) -> float:
     if value is None:
         return 0.0
@@ -97,3 +107,14 @@ def season_filter(month: int, season: str | None) -> bool:
 def normalize_metric(metric: str | None) -> str:
     allowed = {"freight", "passengers", "mail", "payload", "flights"}
     return metric if metric in allowed else "freight"
+
+
+def haversine_miles(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    """Great-circle distance in miles."""
+    r_miles = 3958.8
+    p1 = math.radians(lat1)
+    p2 = math.radians(lat2)
+    d_phi = math.radians(lat2 - lat1)
+    d_lambda = math.radians(lon2 - lon1)
+    a = math.sin(d_phi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(d_lambda / 2) ** 2
+    return 2 * r_miles * math.asin(math.sqrt(a))
