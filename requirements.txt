@@ -1,6 +1,7 @@
 numpy
 matplotlib
 geopandas
+arcgis
 rasterio
 rioxarray
 pystac-client
