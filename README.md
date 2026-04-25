@@ -1,8 +1,8 @@
 # Fly Spy
 
-> Find where invasive fruits flies outbreak and where the originate.
+> Find where invasive fruit flies outbreak and where they originate.
 
-Using Geospatial data fruit flies outbreaks are found and traced to seaport or airport of entry. This is then further tracked to possible origins and used to help make policy and defenses against these invasive flies.
+Using Geospatial datam fruit fly outbreaks are found and traced to seaports or airports of entry. This is then further tracked to possible origins and used to help make policy and prevention stategies against these invasive flies.
 
 ## Screenshots
 ![Map](screenshots/map.png)   
@@ -39,7 +39,7 @@ Make a `data/` directory:
 mkdir data
 ```
 
-copy these files into it with exactly these names:
+Copy these files into it with exactly these names:
 
 ```text
 fruit_fly_detections.csv
