@@ -1,18 +1,6 @@
 const fmt = new Intl.NumberFormat();
 const $ = (id) => document.getElementById(id);
 
-<<<<<<< HEAD
-const COLORS = {
-  green: '#1E4D2B',
-  gold: '#C8C372',
-  goldBright: '#F1E8A6',
-  cream: '#f7f4df',
-  muted: '#d8d0a2',
-  rust: '#d97757'
-};
-
-=======
->>>>>>> origin/main
 let map = L.map('map').setView([37.8, -96], 4);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
@@ -55,21 +43,8 @@ function renderCountries(rows) {
   if (countryChart) countryChart.destroy();
   countryChart = new Chart($('countryChart'), {
     type: 'bar',
-<<<<<<< HEAD
-    data: { labels, 
-    datasets: [{
-    label: 'Risk score',
-    data: risk,
-    backgroundColor: COLORS.gold,
-    borderColor: COLORS.goldBright,
-    borderWidth: 1
-    }] 
-    },
-    options: { responsive: true, plugins: { legend: { labels: { color: COLORS.cream } } }, scales: { x: { ticks: { color: COLORS.muted } }, y: { ticks: { y: { ticks: { color: COLORS.muted } } } } } }
-=======
     data: { labels, datasets: [{ label: 'Risk score', data: risk }] },
     options: { responsive: true, plugins: { legend: { labels: { color: '#e5e7eb' } } }, scales: { x: { ticks: { color: '#cbd5e1' } }, y: { ticks: { color: '#cbd5e1' } } } }
->>>>>>> origin/main
   });
 
   $('countryTable').querySelector('tbody').innerHTML = rows.map(r => `
@@ -102,52 +77,20 @@ async function loadTimeseries() {
   timeChart = new Chart($('timeChart'), {
     type: 'line',
     data: {
-<<<<<<< HEAD
-    labels: data.labels,
-    datasets: [
-        {
-        label: `${selectedCountry} ${data.metric}`,
-        data: data.traffic,
-        yAxisID: 'yTraffic',
-        tension: .25,
-        borderColor: COLORS.gold,
-        backgroundColor: COLORS.gold,
-        pointBackgroundColor: COLORS.goldBright
-        },
-        {
-        label: 'Fruit fly detections',
-        data: data.detections,
-        yAxisID: 'yDetect',
-        tension: .25,
-        borderColor: COLORS.rust,
-        backgroundColor: COLORS.rust,
-        pointBackgroundColor: COLORS.rust
-        }
-    ]
-=======
       labels: data.labels,
       datasets: [
         { label: `${selectedCountry} ${data.metric}`, data: data.traffic, yAxisID: 'yTraffic', tension: .25 },
         { label: 'Fruit fly detections', data: data.detections, yAxisID: 'yDetect', tension: .25 }
       ]
->>>>>>> origin/main
     },
     options: {
       responsive: true,
       interaction: { mode: 'index', intersect: false },
-<<<<<<< HEAD
-      plugins: { legend: { labels: { color: COLORS.cream } } },
-      scales: {
-        x: { ticks: { color: COLORS.muted, maxTicksLimit: 10 } },
-        yTraffic: { position: 'left', ticks: { color: COLORS.muted } },
-        yDetect: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: COLORS.muted } }
-=======
       plugins: { legend: { labels: { color: '#e5e7eb' } } },
       scales: {
         x: { ticks: { color: '#cbd5e1', maxTicksLimit: 10 } },
         yTraffic: { position: 'left', ticks: { color: '#cbd5e1' } },
         yDetect: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: '#cbd5e1' } }
->>>>>>> origin/main
       }
     }
   });
@@ -163,20 +106,12 @@ async function loadHotspots() {
   const c = selectedCountry ? `&country=${encodeURIComponent(selectedCountry)}` : '';
   const data = await getJSON(`/api/hotspots/?metric=${metric()}&state=${encodeURIComponent(state())}&season=${season()}&year=${year()}${c}`);
   data.detections.forEach(p => {
-<<<<<<< HEAD
-    L.circleMarker([p.lat, p.lon], { radius: radius(p.value) + 2, color: COLORS.rust, fillOpacity: .45, weight: 1 })
-=======
     L.circleMarker([p.lat, p.lon], { radius: radius(p.value) + 2, color: '#fb7185', fillOpacity: .45, weight: 1 })
->>>>>>> origin/main
       .bindPopup(`<b>Detection</b><br>${p.name}, ${p.state}<br>${p.year}-${String(p.month).padStart(2,'0')}<br>Count: ${fmt.format(Math.round(p.value))}`)
       .addTo(detectionLayer);
   });
   data.airports.forEach(p => {
-<<<<<<< HEAD
-    L.circleMarker([p.lat, p.lon], { radius: radius(p.value), color: COLORS.gold, fillOpacity: .35, weight: 1 })
-=======
     L.circleMarker([p.lat, p.lon], { radius: radius(p.value), color: '#38bdf8', fillOpacity: .35, weight: 1 })
->>>>>>> origin/main
       .bindPopup(`<b>Inbound airport</b><br>${p.name}<br>${p.state}<br>${p.year}-${String(p.month).padStart(2,'0')}<br>${data.metric}: ${fmt.format(Math.round(p.value))}`)
       .addTo(airportLayer);
   });
